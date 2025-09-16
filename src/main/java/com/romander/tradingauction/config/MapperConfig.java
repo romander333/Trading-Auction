@@ -1,4 +1,4 @@
-package com.romander.carsharing.config;
+package com.romander.tradingauction.config;
 
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.NullValueCheckStrategy;

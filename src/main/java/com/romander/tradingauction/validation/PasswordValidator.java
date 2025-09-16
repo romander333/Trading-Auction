@@ -1,6 +1,6 @@
-package com.romander.carsharing.validation;
+package com.romander.tradingauction.validation;
 
-import com.romander.carsharing.dto.user.SignUpRequestDto;
+import com.romander.tradingauction.dto.user.SignUpRequestDto;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 

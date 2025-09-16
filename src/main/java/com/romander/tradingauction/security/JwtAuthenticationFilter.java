@@ -1,4 +1,4 @@
-package com.romander.carsharing.security;
+package com.romander.tradingauction.security;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 

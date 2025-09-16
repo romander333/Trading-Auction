@@ -1,4 +1,4 @@
-package com.romander.carsharing.dto.user;
+package com.romander.tradingauction.dto.user;
 
 public record SignInResponseDto(String token) {
 }

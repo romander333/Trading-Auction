@@ -1,6 +1,6 @@
-package com.romander.carsharing.repository;
+package com.romander.tradingauction.repository;
 
-import com.romander.carsharing.model.User;
+import com.romander.tradingauction.model.User;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;

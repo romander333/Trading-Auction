@@ -1,17 +1,17 @@
-package com.romander.carsharing.service;
+package com.romander.tradingauction.service;
 
-import com.romander.carsharing.dto.user.RoleRequestDto;
-import com.romander.carsharing.dto.user.SignUpRequestDto;
-import com.romander.carsharing.dto.user.UpdateUserRequestDto;
-import com.romander.carsharing.dto.user.UserResponseDto;
-import com.romander.carsharing.exception.EntityNotFoundException;
-import com.romander.carsharing.exception.RegistrationException;
-import com.romander.carsharing.mapper.UserMapper;
-import com.romander.carsharing.model.Role;
-import com.romander.carsharing.model.User;
-import com.romander.carsharing.repository.RoleRepository;
-import com.romander.carsharing.repository.UserRepository;
-import com.romander.carsharing.security.AuthenticationService;
+import com.romander.tradingauction.dto.user.RoleRequestDto;
+import com.romander.tradingauction.dto.user.SignUpRequestDto;
+import com.romander.tradingauction.dto.user.UpdateUserRequestDto;
+import com.romander.tradingauction.dto.user.UserResponseDto;
+import com.romander.tradingauction.exception.EntityNotFoundException;
+import com.romander.tradingauction.exception.RegistrationException;
+import com.romander.tradingauction.mapper.UserMapper;
+import com.romander.tradingauction.model.Role;
+import com.romander.tradingauction.model.User;
+import com.romander.tradingauction.repository.RoleRepository;
+import com.romander.tradingauction.repository.UserRepository;
+import com.romander.tradingauction.security.AuthenticationService;
 import java.util.HashSet;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
@@ -56,12 +56,6 @@ public class UserServiceImpl implements UserService {
                         + requestDto.getRoleName()));
         user.setRoles(new HashSet<>(Set.of(role)));
         userRepository.save(user);
-    }
-
-    @Override
-    public UserResponseDto getCurrentUserInfo() {
-        User user = getCurrentUser();
-        return userMapper.toDto(user);
     }
 
     @Override

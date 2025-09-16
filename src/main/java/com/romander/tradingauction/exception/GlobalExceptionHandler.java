@@ -1,4 +1,4 @@
-package com.romander.carsharing.exception;
+package com.romander.tradingauction.exception;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -64,10 +64,5 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object> handleUserNotAuthenticatedException(
             UserNotAuthenticatedException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.UNAUTHORIZED);
-    }
-
-    @ExceptionHandler(NoInventoryException.class)
-    public ResponseEntity<Object> handleNoInventoryException(NoInventoryException ex) {
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 }
