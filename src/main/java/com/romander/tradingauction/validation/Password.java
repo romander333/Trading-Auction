@@ -1,4 +1,4 @@
-package com.romander.carsharing.validation;
+package com.romander.tradingauction.validation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

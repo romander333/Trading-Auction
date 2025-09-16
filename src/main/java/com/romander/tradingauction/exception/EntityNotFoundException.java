@@ -1,4 +1,4 @@
-package com.romander.carsharing.exception;
+package com.romander.tradingauction.exception;
 
 public class EntityNotFoundException extends RuntimeException {
     public EntityNotFoundException(String message) {

@@ -1,9 +1,9 @@
-package com.romander.carsharing.security;
+package com.romander.tradingauction.security;
 
-import com.romander.carsharing.dto.user.SignInRequestDto;
-import com.romander.carsharing.dto.user.SignInResponseDto;
-import com.romander.carsharing.exception.UserNotAuthenticatedException;
-import com.romander.carsharing.model.User;
+import com.romander.tradingauction.dto.user.SignInRequestDto;
+import com.romander.tradingauction.dto.user.SignInResponseDto;
+import com.romander.tradingauction.exception.UserNotAuthenticatedException;
+import com.romander.tradingauction.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
