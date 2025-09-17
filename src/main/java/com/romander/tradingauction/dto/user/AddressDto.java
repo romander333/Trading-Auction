@@ -6,11 +6,13 @@ import lombok.experimental.Accessors;
 
 @Data
 @Accessors(chain = true)
-public class UpdateUserRequestDto {
+public class AddressDto {
     @NotBlank
-    private String firstName;
+    private String country;
     @NotBlank
-    private String lastName;
+    private String city;
     @NotBlank
-    private String phone;
+    private String postalCode;
+    @NotBlank
+    private String street;
 }
