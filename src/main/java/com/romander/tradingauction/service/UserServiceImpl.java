@@ -1,5 +1,6 @@
 package com.romander.tradingauction.service;
 
+import com.romander.tradingauction.dto.user.AddressDto;
 import com.romander.tradingauction.dto.user.RoleRequestDto;
 import com.romander.tradingauction.dto.user.SignUpRequestDto;
 import com.romander.tradingauction.dto.user.UpdateUserRequestDto;
@@ -7,6 +8,7 @@ import com.romander.tradingauction.dto.user.UserResponseDto;
 import com.romander.tradingauction.exception.EntityNotFoundException;
 import com.romander.tradingauction.exception.RegistrationException;
 import com.romander.tradingauction.mapper.UserMapper;
+import com.romander.tradingauction.model.Address;
 import com.romander.tradingauction.model.Role;
 import com.romander.tradingauction.model.User;
 import com.romander.tradingauction.repository.RoleRepository;
@@ -63,6 +65,29 @@ public class UserServiceImpl implements UserService {
         User user = getCurrentUser();
         userMapper.updateUser(user, requestDto);
         User savedUser = userRepository.save(user);
+        return userMapper.toDto(savedUser);
+    }
+
+    @Override
+    public UserResponseDto getMyProfileInfo() {
+        User user = getCurrentUser();
+        return userMapper.toDto(user);
+    }
+
+    @Override
+    public UserResponseDto updateMyAddress(AddressDto requestDto) {
+        User user = getCurrentUser();
+        Address address = user.getAddress();
+        if (address == null) {
+            address = new Address();
+            user.setAddress(address);
+        }
+        address.setCity(requestDto.getCity());
+        address.setCountry(requestDto.getCountry());
+        address.setPostalCode(requestDto.getPostalCode());
+        address.setStreet(requestDto.getStreet());
+        User savedUser = userRepository.save(user);
+
         return userMapper.toDto(savedUser);
     }
 
