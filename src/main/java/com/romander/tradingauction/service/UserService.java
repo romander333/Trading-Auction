@@ -1,5 +1,6 @@
 package com.romander.tradingauction.service;
 
+import com.romander.tradingauction.dto.user.AddressDto;
 import com.romander.tradingauction.dto.user.RoleRequestDto;
 import com.romander.tradingauction.dto.user.SignUpRequestDto;
 import com.romander.tradingauction.dto.user.UpdateUserRequestDto;
@@ -11,4 +12,8 @@ public interface UserService {
     void updateRole(RoleRequestDto requestDto, Long id);
 
     UserResponseDto updateProfile(UpdateUserRequestDto requestDto);
+
+    UserResponseDto getMyProfileInfo();
+
+    UserResponseDto updateMyAddress(AddressDto dto);
 }

@@ -1,6 +1,7 @@
 package com.romander.tradingauction.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,6 +34,8 @@ public class User implements UserDetails {
     private String email;
     @Column(nullable = false)
     private String password;
+    @Column(nullable = false, unique = true)
+    private String phone;
     @Column(nullable = false)
     private String firstName;
     @Column(nullable = false)
@@ -45,6 +48,8 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles = new HashSet<>();
+    @Embedded
+    private Address address;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
