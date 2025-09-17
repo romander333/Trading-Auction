@@ -16,11 +16,26 @@ databaseChangeLog:
                   name: password
                   value: '$2a$12$k5M6AyJ4itLQTb6KgNZsCeTROTmcRGE0AUr9Z0Kk/Mr9aDM8LPkYq'
               - column:
+                  name: phone
+                  value: +380934434192
+              - column:
                   name: first_name
                   value: Roman
               - column:
                   name: last_name
                   value: Luch
+              - column:
+                  name: country
+                  value: Ukraine
+              - column:
+                  name: city
+                  value: Lviv
+              - column:
+                  name: postal_code
+                  value: 80193
+              - column:
+                  name: street
+                  value: Hrushevskogo 47/20
         - insert:
             tableName: users
             columns:
@@ -34,8 +49,23 @@ databaseChangeLog:
                   name: password
                   value: '$2a$12$C2OnjlEg.PgOom6mbfdScuJY/8e3L7EhC0m7Y4WWnZPSqZeTa6wXm'
               - column:
+                  name: phone
+                  value: +30732268258
+              - column:
                   name: first_name
                   value: Admin
               - column:
                   name: last_name
                   value: Manager
+              - column:
+                  name: country
+                  value: Poland
+              - column:
+                  name: city
+                  value: Varshava
+              - column:
+                  name: postal_code
+                  value: 12890
+              - column:
+                  name: street
+                  value: Teatralna 50/90
