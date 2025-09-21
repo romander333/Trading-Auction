@@ -11,8 +11,8 @@ public class ProductResponseDto {
     private String description;
     private String imageUrl;
     private BigDecimal price;
-    private boolean isForTrade;
-    private boolean isForSales;
+    private Boolean isForTrade;
+    private Boolean isForSale;
     private LocalDateTime createdAt;
     private Long ownerId;
 }
