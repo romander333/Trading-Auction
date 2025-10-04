@@ -39,6 +39,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductResponseDto createProduct(ProductRequestDto productRequestDto) {
         Product product = productMapper.toModel(productRequestDto);
         User user = authenticationService.getCurrentUser();
+        System.out.println("Current user: " + user);
         product.setCreatedAt(LocalDateTime.now());
         product.setUser(user);
         Product savedProduct = productRepository.save(product);
