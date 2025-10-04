@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       author: luchko roman
-      id: 07-create-products-table.yaml
+      id: 08-create-products-table.yaml
       changes:
         - createTable:
             tableName: products
@@ -31,7 +31,11 @@ databaseChangeLog:
               - column:
                   name: price
                   type: decimal
+              - column:
+                  name: category_id
+                  type: bigint
                   constraints:
+                    nullable: false
               - column:
                   name: is_for_trade
                   type: bit(1)
@@ -62,6 +66,13 @@ databaseChangeLog:
             baseColumnNames: owner_id
             constraintName: fk_product_user
             referencedTableName: users
+            referencedColumnNames: id
+            onDelete: CASCADE
+        - addForeignKeyConstraint:
+            baseTableName: products
+            baseColumnNames: category_id
+            constraintName: fk_product_categories
+            referencedTableName: categories
             referencedColumnNames: id
             onDelete: CASCADE
 
