@@ -31,6 +31,7 @@ databaseChangeLog:
               - column:
                   name: price
                   type: decimal
+                  constraints:
               - column:
                   name: is_for_trade
                   type: bit(1)

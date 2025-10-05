@@ -16,6 +16,8 @@ public class ProductRequestDto {
     private String imageUrl;
     private BigDecimal price;
     @NotNull
+    private Long categoryId;
+    @NotNull
     private Boolean isForTrade;
     @NotNull
     private Boolean isForSale;

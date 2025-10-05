@@ -35,6 +35,9 @@ public class Product {
     @Column(nullable = false)
     private String imageUrl;
     private BigDecimal price;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(nullable = false, name = "category_id")
+    private Category category;
     @Column(nullable = false)
     private Boolean isForTrade;
     @Column(nullable = false)
