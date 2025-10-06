@@ -1,62 +1,68 @@
 databaseChangeLog:
   - changeSet:
+      id: 08-create-products-table
       author: luchko roman
-      id: 07-create-products-table.yaml
       changes:
         - createTable:
             tableName: products
             columns:
               - column:
                   name: id
+                  type: BIGINT
                   autoIncrement: true
-                  type: bigint
                   constraints:
-                    nullable: false
                     primaryKey: true
+                    nullable: false
               - column:
                   name: title
-                  type: varchar(255)
+                  type: VARCHAR(255)
                   constraints:
                     nullable: false
               - column:
                   name: description
-                  type: varchar(255)
+                  type: VARCHAR(255)
                   constraints:
                     nullable: false
               - column:
                   name: image_url
-                  type: varchar(255)
+                  type: VARCHAR(255)
                   constraints:
                     nullable: false
               - column:
                   name: price
-                  type: decimal
+                  type: DECIMAL(10,2)
+              - column:
+                  name: category_id
+                  type: BIGINT
                   constraints:
+                    nullable: false
               - column:
                   name: is_for_trade
-                  type: bit(1)
+                  type: BIT(1)
                   constraints:
                     nullable: false
               - column:
                   name: is_for_sale
-                  type: bit(1)
+                  type: BIT(1)
                   constraints:
                     nullable: false
               - column:
                   name: created_at
-                  type: datetime
+                  type: DATETIME
                   constraints:
                     nullable: false
               - column:
                   name: owner_id
-                  type: bigint
+                  type: BIGINT
                   constraints:
                     nullable: false
               - column:
                   name: is_deleted
-                  type: bit(1)
+                  type: BIT(1)
                   constraints:
                     nullable: false
+                    defaultValueBoolean: false
+
         - addForeignKeyConstraint:
             baseTableName: products
             baseColumnNames: owner_id
@@ -65,3 +71,10 @@ databaseChangeLog:
             referencedColumnNames: id
             onDelete: CASCADE
 
+        - addForeignKeyConstraint:
+            baseTableName: products
+            baseColumnNames: category_id
+            constraintName: fk_product_category
+            referencedTableName: categories
+            referencedColumnNames: id
+            onDelete: CASCADE
