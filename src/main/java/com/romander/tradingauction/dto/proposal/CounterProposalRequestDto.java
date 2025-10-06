@@ -7,5 +7,5 @@ import lombok.Data;
 @Data
 public class CounterProposalRequestDto {
     @NotEmpty
-    private Set<Long> CounterProductId;
+    private Set<Long> counterProductId;
 }

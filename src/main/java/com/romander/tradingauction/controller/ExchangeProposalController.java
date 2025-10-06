@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class ExchangeProposalController {
     private final ExchangeProposalService proposalService;
 
-    @PostMapping()
+    @PostMapping
     public ExchangeProposalResponseDto createProposal(@RequestBody @Valid ExchangeProposalRequestDto requestDto) {
         return proposalService.createProposal(requestDto);
     }
@@ -37,7 +37,7 @@ public class ExchangeProposalController {
         return proposalService.rejectProposal(id);
     }
 
-    @PostMapping("/{id}/countee")
+    @PostMapping("/{id}/counter")
     public ExchangeProposalResponseDto counterProposal(
             @PathVariable Long id,
             @RequestBody @Valid CounterProposalRequestDto requestDto
