@@ -65,4 +65,25 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             UserNotAuthenticatedException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.UNAUTHORIZED);
     }
+
+    @ExceptionHandler(ProposalCannotBeCanceledException.class)
+    public ResponseEntity<Object> handleProposalCannotBeCanceledException(
+            ProposalCannotBeCanceledException ex
+    ) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ProposalOtherUsersProductException.class)
+    public ResponseEntity<Object> handleProposalOtherUsersProductException(
+            ProposalOtherUsersProductException ex
+    ) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<Object> handleAccessDeniedException(
+            AccessDeniedException ex
+    ) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.FORBIDDEN);
+    }
 }

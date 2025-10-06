@@ -12,7 +12,6 @@ public class ProductRequestDto {
     private String title;
     @NotBlank
     private String description;
-    @NotBlank
     @Image
     private String imageUrl;
     private BigDecimal price;

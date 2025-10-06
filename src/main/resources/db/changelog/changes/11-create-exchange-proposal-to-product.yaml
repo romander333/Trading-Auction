@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 11-create-exchange-proposal-to-product
+      author: luchko roman
+      changes:
+        - createTable:
+            tableName: exchange_proposal_to_product
+            columns:
+              - column:
+                  name: exchange_proposal_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+        - addPrimaryKey:
+            tableName: exchange_proposal_to_product
+            columnNames: exchange_proposal_id,product_id
+            constraintName: pk_proposal_to_product
+
+        - addForeignKeyConstraint:
+            baseTableName: exchange_proposal_to_product
+            baseColumnNames: exchange_proposal_id
+            constraintName: fk_to_product_proposal
+            referencedTableName: exchange_proposal
+            referencedColumnNames: id
+            onDelete: CASCADE
+
+        - addForeignKeyConstraint:
+            baseTableName: exchange_proposal_to_product
+            baseColumnNames: product_id
+            constraintName: fk_to_product
+            referencedTableName: products
+            referencedColumnNames: id
+            onDelete: CASCADE
