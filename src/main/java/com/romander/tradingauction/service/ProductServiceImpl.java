@@ -6,8 +6,10 @@ import com.romander.tradingauction.dto.product.UpdateProductRequestDto;
 import com.romander.tradingauction.exception.AccessDeniedException;
 import com.romander.tradingauction.exception.EntityNotFoundException;
 import com.romander.tradingauction.mapper.ProductMapper;
+import com.romander.tradingauction.model.Category;
 import com.romander.tradingauction.model.Product;
 import com.romander.tradingauction.model.User;
+import com.romander.tradingauction.repository.CategoryRepository;
 import com.romander.tradingauction.repository.ProductRepository;
 import com.romander.tradingauction.security.AuthenticationService;
 import java.time.LocalDateTime;
@@ -22,6 +24,7 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
     private final AuthenticationService authenticationService;
+    private final CategoryRepository categoryRepository;
 
     @Override
     public Page<ProductResponseDto> getProducts(Pageable pageable) {
@@ -38,9 +41,13 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductResponseDto createProduct(ProductRequestDto productRequestDto) {
         Product product = productMapper.toModel(productRequestDto);
+        Category category = categoryRepository.findById(productRequestDto.getCategoryId())
+                .orElseThrow(() -> new EntityNotFoundException("Category not found by id: "
+                        + productRequestDto.getCategoryId()));
         User user = authenticationService.getCurrentUser();
         product.setCreatedAt(LocalDateTime.now());
         product.setUser(user);
+        product.setCategory(category);
         Product savedProduct = productRepository.save(product);
         return productMapper.toDto(savedProduct);
     }
