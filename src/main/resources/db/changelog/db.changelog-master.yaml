@@ -21,3 +21,5 @@ databaseChangeLog:
       file: db/changelog/changes/10-create-exchange-proposal-from-product.yaml
   - include:
       file: db/changelog/changes/11-create-exchange-proposal-to-product.yaml
+  - include:
+      file: db/changelog/changes/12-create-payments-table.yaml

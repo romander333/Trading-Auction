@@ -86,4 +86,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     ) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.FORBIDDEN);
     }
+
+    @ExceptionHandler(ProductNotForSaleException.class)
+    public ResponseEntity<Object> handleProductNotForSaleException(
+            ProductNotForSaleException ex
+    ) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
 }
