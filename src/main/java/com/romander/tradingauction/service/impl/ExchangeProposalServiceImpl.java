@@ -1,4 +1,4 @@
-package com.romander.tradingauction.service;
+package com.romander.tradingauction.service.impl;
 
 import com.romander.tradingauction.dto.proposal.CounterProposalRequestDto;
 import com.romander.tradingauction.dto.proposal.ExchangeProposalRequestDto;
@@ -20,6 +20,7 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.romander.tradingauction.service.ExchangeProposalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

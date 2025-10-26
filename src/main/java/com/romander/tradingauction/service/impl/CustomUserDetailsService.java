@@ -1,4 +1,4 @@
-package com.romander.tradingauction.service;
+package com.romander.tradingauction.service.impl;
 
 import com.romander.tradingauction.exception.EntityNotFoundException;
 import com.romander.tradingauction.repository.UserRepository;

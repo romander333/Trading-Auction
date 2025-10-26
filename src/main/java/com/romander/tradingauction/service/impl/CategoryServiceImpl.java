@@ -1,4 +1,4 @@
-package com.romander.tradingauction.service;
+package com.romander.tradingauction.service.impl;
 
 import com.romander.tradingauction.dto.category.CategoryRequestDto;
 import com.romander.tradingauction.dto.category.CategoryResponseDto;
@@ -7,6 +7,8 @@ import com.romander.tradingauction.mapper.CategoryMapper;
 import com.romander.tradingauction.model.Category;
 import com.romander.tradingauction.repository.CategoryRepository;
 import java.util.List;
+
+import com.romander.tradingauction.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
