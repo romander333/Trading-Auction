@@ -76,6 +76,15 @@ public class ProductServiceImpl implements ProductService {
                 .map(productMapper::toDto);
     }
 
+    @Override
+    public Page<ProductResponseDto> getAllProductsByCategory(Long categoryId, Pageable pageable) {
+        if (categoryId == null) {
+            throw new EntityNotFoundException("Category not found by id: " + categoryId);
+        }
+        return productRepository.findAllByCategory_Id(categoryId, pageable)
+                .map(productMapper::toDto);
+    }
+
     private void checkOwner(Long userId, Long productId) {
         Product product = getProductById(productId);
 
