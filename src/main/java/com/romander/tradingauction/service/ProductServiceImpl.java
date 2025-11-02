@@ -14,9 +14,11 @@ import com.romander.tradingauction.repository.ProductRepository;
 import com.romander.tradingauction.security.AuthenticationService;
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -66,7 +68,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void deleteProduct(Long id) {
         Long userId = getCurrentUser().getId();
-        checkOwner(id, userId);
+        checkOwner(userId, id);
         productRepository.deleteById(id);
     }
 
@@ -85,9 +87,17 @@ public class ProductServiceImpl implements ProductService {
                 .map(productMapper::toDto);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public Page<ProductResponseDto> getProductsByNameOrDescription(String input, Pageable pageable) {
+        return productRepository.findByTitleContainingOrDescriptionContaining(input, input, pageable)
+                .map(productMapper::toDto);
+    }
+
     private void checkOwner(Long userId, Long productId) {
         Product product = getProductById(productId);
 
+        System.out.println("User id: " + userId + ", product id: " + productId);
         if (!product.getUser().getId().equals(userId)) {
             throw new AccessDeniedException("You can't update or delete another user's product");
         }

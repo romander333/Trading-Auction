@@ -46,9 +46,14 @@ public class ProductController {
         return productService.getParticularUserProducts(id, pageable);
     }
 
-    @GetMapping("/category")
-    public Page<ProductResponseDto> getCategoryProducts(@RequestParam Long id, Pageable pageable) {
+    @GetMapping("/category/{id}")
+    public Page<ProductResponseDto> getCategoryProducts(@PathVariable Long id, Pageable pageable) {
         return productService.getAllProductsByCategory(id, pageable);
+    }
+
+    @GetMapping("/search")
+    public Page<ProductResponseDto> searchProducts(@RequestParam String keywords, Pageable pageable) {
+        return productService.getProductsByNameOrDescription(keywords, pageable);
     }
 
     @DeleteMapping("/{id}")

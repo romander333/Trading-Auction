@@ -21,4 +21,6 @@ public interface ProductService {
     Page<ProductResponseDto> getParticularUserProducts(Long userId, Pageable pageable);
 
     Page<ProductResponseDto> getAllProductsByCategory(Long categoryId, Pageable pageable);
+
+    Page<ProductResponseDto> getProductsByNameOrDescription(String input, Pageable pageable);
 }
