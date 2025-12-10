@@ -1,4 +1,4 @@
-package com.romander.tradingauction.service;
+package com.romander.tradingauction.service.impl;
 
 import com.romander.tradingauction.dto.product.ProductRequestDto;
 import com.romander.tradingauction.dto.product.ProductResponseDto;
@@ -13,6 +13,8 @@ import com.romander.tradingauction.repository.CategoryRepository;
 import com.romander.tradingauction.repository.ProductRepository;
 import com.romander.tradingauction.security.AuthenticationService;
 import java.time.LocalDateTime;
+
+import com.romander.tradingauction.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

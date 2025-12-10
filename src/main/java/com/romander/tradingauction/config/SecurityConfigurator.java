@@ -1,7 +1,7 @@
 package com.romander.tradingauction.config;
 
 import com.romander.tradingauction.security.JwtAuthenticationFilter;
-import com.romander.tradingauction.service.CustomUserDetailsService;
+import com.romander.tradingauction.service.impl.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

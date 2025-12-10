@@ -1,4 +1,4 @@
-package com.romander.tradingauction.service;
+package com.romander.tradingauction.service.impl;
 
 import com.romander.tradingauction.dto.proposal.CounterProposalRequestDto;
 import com.romander.tradingauction.dto.proposal.ExchangeProposalRequestDto;
@@ -20,6 +20,8 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.romander.tradingauction.service.ExchangeProposalService;
+import com.romander.tradingauction.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -34,6 +36,7 @@ public class ExchangeProposalServiceImpl implements ExchangeProposalService {
     private final AuthenticationService authenticationService;
     private final ProductRepository productRepository;
     private final UserRepository userRepository;
+    private final NotificationService notificationService;
 
     @Override
     @Transactional
@@ -56,6 +59,8 @@ public class ExchangeProposalServiceImpl implements ExchangeProposalService {
         }
 
         proposalRepository.save(proposal);
+
+        notificationService.sendNewProposalNotification(proposal);
 
         return proposalMapper.toDto(proposal);
     }
@@ -91,6 +96,7 @@ public class ExchangeProposalServiceImpl implements ExchangeProposalService {
 
         ProposalAccessResponseDto responseDto = proposalMapper.toAccessDto(proposal);
         proposalRepository.save(proposal);
+        notificationService.sendProposalAcceptedNotification(proposal);
         return responseDto;
     }
 
@@ -99,6 +105,7 @@ public class ExchangeProposalServiceImpl implements ExchangeProposalService {
         ExchangeProposal proposal = getProposalById(proposalId);
         proposal.setStatus(ExchangeProposal.Status.REJECTED);
         proposalRepository.save(proposal);
+        notificationService.sendProposalRejectedNotification(proposal);
         return proposalMapper.toDto(proposal);
     }
 
@@ -118,6 +125,7 @@ public class ExchangeProposalServiceImpl implements ExchangeProposalService {
         counterProposal.setFromProducts(getProductsById(requestDto.getCounterProductId()));
 
         proposalRepository.save(counterProposal);
+        notificationService.sendNewCounterProposalNotification(counterProposal);
         return proposalMapper.toDto(counterProposal);
     }
 

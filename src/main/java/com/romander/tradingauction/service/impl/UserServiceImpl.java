@@ -1,4 +1,4 @@
-package com.romander.tradingauction.service;
+package com.romander.tradingauction.service.impl;
 
 import com.romander.tradingauction.dto.user.AddressDto;
 import com.romander.tradingauction.dto.user.RoleRequestDto;
@@ -16,6 +16,8 @@ import com.romander.tradingauction.repository.UserRepository;
 import com.romander.tradingauction.security.AuthenticationService;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.romander.tradingauction.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

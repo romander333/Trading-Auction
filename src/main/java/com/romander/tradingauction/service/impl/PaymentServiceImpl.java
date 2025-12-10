@@ -1,4 +1,4 @@
-package com.romander.tradingauction.service;
+package com.romander.tradingauction.service.impl;
 
 import com.romander.tradingauction.dto.payment.PaymentResponseDto;
 import com.romander.tradingauction.exception.EntityNotFoundException;
@@ -8,6 +8,7 @@ import com.romander.tradingauction.model.Payment;
 import com.romander.tradingauction.model.Product;
 import com.romander.tradingauction.repository.PaymentRepository;
 import com.romander.tradingauction.repository.ProductRepository;
+import com.romander.tradingauction.service.PaymentService;
 import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
