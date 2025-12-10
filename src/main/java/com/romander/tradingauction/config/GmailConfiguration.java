@@ -32,7 +32,7 @@ public class GmailConfiguration {
     private String applicationName;
 
     // Шлях до файлу з обліковими даними в папці 'resources'
-    @Value("classpath:credentials.json")
+    @Value("${gmail.credentials-path}")
     private Resource credentialsFile;
 
     // Папка для збереження токенів
@@ -76,7 +76,7 @@ public class GmailConfiguration {
                 .build();
 
         // Використовуємо порт 8888 для зворотного виклику OAuth
-        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
+        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8081).build();
 
         // authorize("user") запустить браузер при першому запуску
         Credential credential = new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");

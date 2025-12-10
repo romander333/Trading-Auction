@@ -35,3 +35,4 @@ build/
 ### secret information ###
 .env
 application-test.properties
+credentials.json

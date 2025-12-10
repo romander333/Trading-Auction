@@ -33,6 +33,7 @@
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <lombok.version>1.18.30</lombok.version>
         <jjwt.version>0.11.5</jjwt.version>
+        <testcontainers.version>1.19.7</testcontainers.version>
     </properties>
     <dependencies>
         <dependency>
@@ -61,7 +62,6 @@
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
-            <version>${liquibase.version}</version>
         </dependency>
         <dependency>
             <groupId>com.stripe</groupId>
@@ -195,7 +195,6 @@
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
-                <version>${liquibase.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
